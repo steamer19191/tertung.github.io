@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อัปโหลดภาพแบบโฟลเดอร์</title>
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery img {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="drop-area">
+    <h3>ลากและวางโฟลเดอร์ที่นี่เพื่ออัปโหลดภาพ</h3>
+    <input type="file" id="fileElem" webkitdirectory directory multiple hidden>
+    <label class="button" for="fileElem">เลือกโฟลเดอร์</label>
+    <div id="gallery" class="gallery"></div>
+</div>
+
+<script>
+    let dropArea = document.getElementById('drop-area');
+
+    // ป้องกันพฤติกรรมเริ่มต้นของเบราว์เซอร์เมื่อมีการลากและวาง
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // จัดการอีเวนต์ลากและวาง
+    dropArea.addEventListener('drop', handleDrop, false);
+
+    function handleDrop(e) {
+        let dt = e.dataTransfer;
+        let files = dt.files;
+
+        handleFiles(files);
+    }
+
+    function handleFiles(files) {
+        [...files].forEach(uploadFile);
+        [...files].forEach(previewFile);
+    }
+
+    function uploadFile(file) {
+        // โค้ดนี้จะจัดการอัปโหลดไฟล์ไปยังเซิร์ฟเวอร์
+        console.log('อัปโหลดไฟล์:', file);
+    }
+
+    function previewFile(file) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = function() {
+            let img = document.createElement('img');
+            img.src = reader.result;
+            document.getElementById('gallery').appendChild(img);
+        }
+    }
+</script>
+
+</body>
+</html>

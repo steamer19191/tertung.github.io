@@ -1,0 +1,207 @@
+body {
+    background-image: url('https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg;');
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+}
+
+
+  
+.W{
+    color: gainsboro;
+}
+
+
+
+header {
+    background-color: white; /* กำหนดสีพื้นหลังเป็นสีขาว */
+    padding: 10px 20px; /* ปรับระยะห่างภายในให้เล็กลง */
+    display: flex; /* ใช้ Flexbox เพื่อจัดตำแหน่ง */
+    justify-content: center;
+    justify-content: space-between; /* จัดตำแหน่งโลโก้และเมนูให้กระจาย */
+    align-items: center; /* จัดแนวตั้งกลาง */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาบางๆ */
+    border-bottom: 2px solid #eaeaea; /* เส้นขอบบางๆ ด้านล่าง */
+    position: fixed;
+    top: 0;
+    left: 50%; /* เริ่มต้นจากกลางหน้าจอ */
+    transform: translateX(-50%); /* เคลื่อนแถบไปทางซ้ายให้ตรงกลาง */
+    width: 80%; /* ปรับความกว้างให้เล็กลง */
+    z-index: 1000;
+    border-radius: 20px; /* ทำมุมโค้งทั้ง 4 ด้าน */
+    margin: 20px 0; /* ระยะห่างจากขอบบนและขอบล่าง */
+}
+
+/*คำแนะนำ*/
+.cl {
+    background-color: #f0f8ff; /* สีพื้นหลังของกล่อง */
+    padding: 15px 20px; /* ระยะห่างภายในกล่อง */
+    border-radius: 8px; /* ทำมุมโค้ง */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กล่อง */
+    max-width: 100px; /* ความกว้างสูงสุดของกล่อง */
+    width: 50%; /* ให้ขยายเต็มความกว้าง */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+    font-size: 9px;
+    font-weight: bold;
+}
+
+/* สไตล์สำหรับลิงก์ในกล่อง */
+.cl a {
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: #007bff; /* สีของลิงก์ */
+    font-weight: bold;
+}
+
+/* เปลี่ยนสีของลิงก์เมื่อ hover */
+.cl a:hover {
+    color: #0056b3;
+}
+
+.logo img {
+    width: 10%;
+    height: 10%;
+    height: auto; /* ควบคุมให้ภาพมีสัดส่วนที่ถูกต้อง */
+}
+
+
+
+.site-name {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* ให้ข้อความเต็มพื้นที่ */
+    position: center
+}
+
+
+
+
+/* แอเรียสำหรับพื้นที่การอัปโหลด */
+.con {
+    display: flex;
+    justify-content: center;  /* จัดกลางพื้นที่แนวนอน */
+    align-items: center;      /* จัดกลางพื้นที่แนวตั้ง */
+    min-height: 200px;        /* ความสูงขั้นต่ำ */
+    margin: 100px auto 0;     /* เพิ่มระยะห่างด้านบนเป็น 100px */
+}
+
+/* กรอบของพื้นที่การอัปโหลด */
+.drop-area {
+    border: 2px dashed #ccc;  /* ขอบแบบ dashed */
+    border-radius: 20px;       /* มุมโค้งมน */
+    width: 80%;                /* กำหนดความกว้าง */
+    padding: 20px;
+    text-align: center;
+    position: relative;        /* เพื่อให้ label สามารถครอบ input ได้ */
+    transition: all 0.3s ease;  /* ทำให้การเปลี่ยนแปลงนุ่มนวล */
+}
+
+/* กรอบแสดงผลเมื่อ hover */
+.drop-area:hover {
+    background-color: #f1f1f1; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
+
+.imgc {
+    display: flex;
+    justify-content: center;  /* จัดกึ่งกลางแนวนอน */
+    align-items: center;      /* จัดกึ่งกลางแนวตั้ง */
+    color: gainsboro;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%;               /* ให้กล่องเต็มความกว้าง */
+    height: 50px;              /* กำหนดความสูงของกล่อง */
+    background-color: white;  /* สีพื้นหลัง */
+    cursor: pointer;          /* เปลี่ยน cursor เป็น pointer เมื่อ hover */
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงที่นุ่มนวล */
+}
+
+/* เมื่อ hover กล่อง */
+.imgc:hover {
+    background-color: #f1f1f1; /* เปลี่ยนสีพื้นหลังเมื่อโฮเวอร์ */
+}
+
+/* ซ่อนปุ่ม input */
+.imput_img {
+    display: none; /* ซ่อน input file */
+}
+
+/* รูปแบบป้ายสำหรับการอัปโหลด */
+.labelimg {
+    font-size: 16px;        /* ขนาดตัวอักษร */
+    font-weight: bold;      /* ทำให้ตัวอักษรหนา */
+    color: #007bff;         /* สีของตัวอักษร */
+    cursor: pointer;        /* ให้ cursor เป็น pointer */
+    padding: 10px 20px;     /* ระยะห่างภายใน */
+    background-color: #fff; /* พื้นหลังของป้าย */
+    border-radius: 10px;    /* มุมโค้งมน */
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงที่นุ่มนวล */
+}
+
+/* เมื่อ hover ที่ label */
+.labelimg:hover {
+    background-color: #007bff; /* เปลี่ยนพื้นหลัง */
+    color: white;               /* เปลี่ยนสีตัวอักษร */
+}
+
+
+/*popup*/
+.overlay {
+    display: none; /* ซ่อนตอนเริ่มต้น */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* พื้นหลังโปร่งแสง */
+    z-index: 999; /* ให้อยู่ด้านบน */
+}
+
+/* สไตล์สำหรับหน้าต่างเด้ง */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* จัดกึ่งกลาง */
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left; /* จัดข้อความชิดซ้าย */
+    z-index: 1000; /* ให้อยู่ด้านบนสุด */
+}
+
+/* ปุ่มปิด */
+.close-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #0056b3;
+}
+
+/* สไตล์ข้อความ */
+.popup h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.popup p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #555;
+}
