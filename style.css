@@ -147,7 +147,6 @@ header {
 }
 
 
-/*popup*/
 .overlay {
     display: none; /* ซ่อนตอนเริ่มต้น */
     position: fixed;
@@ -159,22 +158,23 @@ header {
     z-index: 999; /* ให้อยู่ด้านบน */
 }
 
-/* สไตล์สำหรับหน้าต่างเด้ง */
+/* Popup Window */
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* จัดกึ่งกลาง */
-    width: 400px;
+    transform: translate(-50%, -50%);
+    width: 90%; /* ใช้เปอร์เซ็นต์เพื่อความยืดหยุ่น */
+    max-width: 400px; /* กำหนดความกว้างสูงสุด */
     padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left; /* จัดข้อความชิดซ้าย */
-    z-index: 1000; /* ให้อยู่ด้านบนสุด */
+    text-align: left;
+    z-index: 1000;
 }
 
-/* ปุ่มปิด */
+/* Close Button */
 .close-btn {
     display: inline-block;
     margin-top: 15px;
@@ -192,7 +192,7 @@ header {
     background: #0056b3;
 }
 
-/* สไตล์ข้อความ */
+/* Popup Text */
 .popup h2 {
     margin-top: 0;
     font-size: 20px;
