@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>ตั๋งแต่งเตอร์เติม</title>
+</head>
+
+<style>
+    #edit-area {
+        text-align: center;
+        margin: 20px;
+    }
+    canvas {
+        max-width: 100%;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src=".\img\DALL·E 2025-01-21 20.19.36 - A minimalist and elegant logo design for the name 'TERTUNG', incorporating unique shapes .webp" alt="Logo">
+        </div>
+        <div class="site-name">
+            <h1>ตั๋งแต่งเตอร์เติม</h1>
+        </div>
+        <div class="cl">
+            <a href="javascript:void(0)" onclick="showPopup()">คำแนะนำ</a>
+        </div>
+    </header>
+    
+    <h2>แก้ไขภาพ</h2>
+    <div id="edit-area">
+        <canvas id="imageCanvas"></canvas>
+        <br>
+        <button id="rotate-btn">หมุนภาพ</button>
+        <button id="save-btn">บันทึกภาพ</button>
+    </div>
+
+    <!--รับข้อมูลผู้ใช้ส่งไปเซิร์ฟเวอร์-->
+    <form action="urlของเซิร์ฟ">
+        
+    </form>
+
+    
+    
+    
+    <script>
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+        const rotateBtn = document.getElementById('rotate-btn');
+        const saveBtn = document.getElementById('save-btn');
+        let img = new Image();
+        let angle = 0;
+
+        // รับข้อมูลภาพจากหน้าแรก
+        const uploadedImage = localStorage.getItem('uploadedImage');
+
+        if (uploadedImage) {
+            img.src = uploadedImage;
+            img.onload = () => {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+            };
+        } else {
+            alert('ไม่พบภาพที่อัปโหลด');
+        }
+
+        // หมุนภาพ
+        rotateBtn.addEventListener('click', () => {
+            angle += 90;
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // ลบภาพเก่า
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate((angle * Math.PI) / 180);
+            ctx.drawImage(img, -img.width / 2, -img.height / 2);
+            ctx.restore();
+        });
+
+        // บันทึกภาพ
+        saveBtn.addEventListener('click', () => {
+            const dataUrl = canvas.toDataURL();
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = 'edited-image.png';
+            link.click();
+        });
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html>
